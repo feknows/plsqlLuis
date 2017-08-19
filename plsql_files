@@ -1,0 +1,27 @@
+
+
+    //cria tabela cor
+    create table cor(
+      id number (4) primary key,
+      nome varchar2(50) not null unique
+      );
+      
+ /*------------ codigo insere id e cor (vid e vnome) codigo nao permite inserção de nomes e ids repetidos
+ com validador de upper and lower*/
+ DECLARE 
+  VID COR.ID%TYPE;
+  VNOME COR.NOME%TYPE;
+  QTDEID NUMBER(1);
+  QTDENOME NUMBER(1);
+BEGIN
+  VID:=30;
+  VNOME:='verde';
+  SELECT COUNT(*) INTO QTDEID FROM COR WHERE ID = VID;
+  SELECT COUNT(*) INTO QTDENOME FROM COR
+                  WHERE UPPER(NOME) = UPPER(VNOME);
+  IF QTDEID = 0 AND QTDENOME = 0 THEN
+     INSERT INTO COR (ID, NOME) VALUES (VID, VNOME);
+     COMMIT;
+     DBMS_OUTPUT.PUT_LINE('GRAVOU' || VNOME);
+  END IF;
+END;  
