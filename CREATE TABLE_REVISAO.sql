@@ -1,0 +1,6 @@
+CREATE TABLE TIPOPROD (
+  ID_TP NUMBER (3) PRIMARY KEY,
+  NOME VARCHAR2 (120) NOT NULL UNIQUE,
+  ATIVO CHAR (1) NOT NULL,
+  CONSTRAINT ck_tipoprod check (Ativo in ('S','s','N','n'))
+  );
