@@ -1,0 +1,37 @@
+usuário sys no SQLPLUS -> sys/fatec#05a
+
+
+
+
+----------------------------------------------------------------------------------------
+SELECT NOME, ID, FROM TABELA_DESEJADA WHERE ROWNUM <=10; 
+RETORNA OS 10 PRIMEIROS REGISTROS (ORACLE)
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
+-> comando 'spool' gera um arquivo para registrar todos os comandos executados no SQLplus, dando para o spool o caminho
+em disco onde você irá salvar o arquivo. (o arquivo pode ter outra extensão, tipo .sql, por exemplo.)
+----------------------------------------------------------------------------------------
+	SQL> SPOOL 'c:\TEMP\saida.txt';            -- inicia o comando spool indicando caminho em disco para salvar;
+	SQL> SPOOL OFF; 			   -- finaliza o comando SPOOL, parando o registro dos comandos do SQLPLUS.
+----------------------------------------------------------------------------------------
+
+-> instância = memória Lógica
+	|        SGA + PGA
+	|--> Física = DATABASE
+
+
+-> STARTUP NOMOUNT; -> INICIA A INSTANCIA SEM SUBIR O DATABASE
+-> ALTER DATABASE MOUNT; -> MONTA O BD E DEIXA ELE EM MODO DE 'READY ONLY', APENAS LEITURA.
+-> ALTER DATABASE OPEN; -> MONTA O BD E PERMITE ELE EXECUTAR LEITURA E ESCRITA.
+
+SEMPRE QUE EXISTIR UM SELECT EM ALGO, PORÉM O ALGO NÃO EXISTE (COMO POR EXEMPLO, TIRAR A DATA DO SISTEMA POR SELECT ..
+"SELECT SYSDATE FROM DUAL" USAMOS O 'DUAL' COMO CORINGA
+
+
+
+
